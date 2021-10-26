@@ -1,0 +1,14 @@
+<div class="card-container">
+    <ng-template ngFor let-item [ngForOf]="generalArr" let-i="index">
+        <div class="card" >
+            <app-button [text]="buttonText" (submitClick)="emittedUserClick(generalArr[i])"></app-button>
+            <div class="card-header">
+                <div class="card-image">
+                    <img [src]="item.host.host_thumbnail_url" alt="Image not found">
+                </div>
+                {{item.name}}
+            </div>
+            <p>{{item.summary}}</p>
+        </div>
+    </ng-template>
+</div>

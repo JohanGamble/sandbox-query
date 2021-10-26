@@ -1,0 +1,8 @@
+<div class="search-container">
+    <app-button (submitClick)="emittedUserClick($event)"></app-button>
+    <div id="search-panel">
+        <label for="input-field">
+            <app-user-input (submittedInput)="emittedUserInput($event)"></app-user-input>
+        </label>
+    </div>
+</div>
