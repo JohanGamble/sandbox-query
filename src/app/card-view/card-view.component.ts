@@ -25,24 +25,19 @@ export class CardViewComponent implements OnInit {
 
   userQuery(inputText: string): void {
     this.inputFieldText = encodeURI(inputText);
-    console.log(this.inputFieldText);
   }
 
   emittedUserClick(emittedValue: any): void {
     if (emittedValue) {
-      console.log(emittedValue)
     }
   }
 
   showConfig() {
     this.configService.getRequest().subscribe((data: any) => {
-      this.configService.getResponse(data.body.pythonAPIUrl)
-        .subscribe((data: any) => {
-          if (data) {
-            let mongodb = JSON.parse(data.mongodb);
-            this.generalArr = mongodb;
-          }
-        })
+      if (data) {
+        let mongodb = data.body;
+        this.generalArr = mongodb;
+      }
     }, (e: Error) => {
       return e;
     }, () => { return "Request completed" });
